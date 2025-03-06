@@ -45,4 +45,5 @@ if [ "$output" == "$expected_output" ]; then
     echo "success"
 else
     echo "error"
+    
 fi

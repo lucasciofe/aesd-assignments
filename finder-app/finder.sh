@@ -1,7 +1,7 @@
 # !/bin/bash
 
 # Check if the correct number of arguments is provided
-if [ "$#" -ne 2]; then
+if [ "$#" -ne 2 ]; then
 	echo "Usage: $0 filesdir  searchstr"
 	exit 1
 fi
@@ -27,12 +27,12 @@ match_count=0
 
 # Loop through files and count matching lines
 for file in "$filesdir"/*; do
-	if [ -f "$file"]; then
+	if [ -f "$file" ]; then
 		file_count=$((file_count + 1))
-		match_count=$((match_count + $(grep -c "$searchstr" "$file")))
+		match_count=$((match_count + $(grep -c "$searchstr" "$file" || echo 0)))
 	fi
 done
 
 # Print the results
 
-echo "The number of file are $file_count and the number of matching lines are $match_count"
+echo "The number of files are $file_count and the number of matching lines are $match_count"
